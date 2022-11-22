@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ecsdemo-crystal
+  name: mdstechday-backend-crystal
   labels:
-    app: ecsdemo-crystal
-  namespace: default
+    app: mdstechday-backend-crystal
+  namespace: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ecsdemo-crystal
+      app: mdstechday-backend-crystal
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: ecsdemo-crystal
+        app: mdstechday-backend-crystal
     spec:
       containers:
       - image: brentley/ecsdemo-crystal:latest
         imagePullPolicy: Always
-        name: ecsdemo-crystal
+        name: mdstechday-backend-crystal
         ports:
         - containerPort: 3000
           protocol: TCP
